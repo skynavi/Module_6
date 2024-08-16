@@ -1,10 +1,9 @@
 class Horse:
-    def __init__(self):
-        super().__init__()
-        print('init Horse')
-
     x_distance = 0  # - пройденный путь.
     sound = 'Frrr'
+
+    def __init__(self):
+        super().__init__()
 
     def run(self, dx):
         self.x_distance += dx
@@ -12,20 +11,21 @@ class Horse:
 
 
 class Eagle:  # класс описывающий орла. Объект этого класса обладает следующими атрибутами
+    y_distance = 0  # - высота полёта
+    sound = 'I train, eat, sleep, and repeat'  # - звук, который издаёт орёл (отсылка)
 
     def __init__(self):
-        print('init eagle')
-
-    y_distance = 0  # - высота полёта
+        super().__init__()
 
     def fly(self, dy):
         self.y_distance += dy
         self.y_distance = self.y_distance
 
-    sound = 'I train, eat, sleep, and repeat'  # - звук, который издаёт орёл (отсылка)
-
 
 class Pegasus(Horse, Eagle):  # - класс описывающий пегаса. Наследуется от Horse и Eagle
+    def __init__(self):
+        super().__init__()
+
     def move(self, dx, dy):
         self.dx = super().run(dx)
         self.dy = super().fly(dy)
